@@ -55,7 +55,7 @@ https://github.com/tarotyjp/sample-series
 
 リポジトリをクローンして下記を実行してください。
 
-1. docker-compose build
+1. docker-compose build --no-cache
 2. docker-compose up -d
 
 ## 環境を作り直したい時
