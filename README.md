@@ -10,7 +10,7 @@
 ご利用の際にはTwitterのフォローをお願いします。  
 [@tarotyjp (saburo)](https://twitter.com/tarotyjp)
 
-また、ハッシュタグ `#本気のDockerサンプル` を付けてツイートしていただけると嬉しいです。
+また、ハッシュタグ `#本気のDockerサンプル` と [本気のDockerサンプル](https://github.com/tarotyjp/sample-series) のURLと一緒にツイートしていただけると嬉しいです。
 
 ツイートサンプル（コピペOK）
 
