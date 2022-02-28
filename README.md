@@ -1,4 +1,4 @@
-# PHP版 本気の Docker サンプル 
+# PHP版 本気の Docker サンプル
 
 プログラミング学習をする上で環境構築は必要ではあるものの、Docker理解の優先度は低いです。  
 学習者にとっては早くプログラミング学習に着手したいのに、環境構築でつまずいてしまいプログラミング学習時の苦手意識を植え付けてしまう大きな要因の１つとなっています。
@@ -38,18 +38,18 @@ https://github.com/tarotyjp/sample-series
 - phpMyAdmin によるデータベース管理
 - cronによる定期実行環境
 - xdebugにも対応
-  - 詳細は省略します
+    - 詳細は省略します
 
 ## 利用されるバージョン
 
 このサンプルで利用しているバージョンは下記のとおりです。  
 適宜 `Dockerfile` を修正して学習に併せたバージョンでご利用ください。
 
-| 環境    | バージョン |
-|-------|-------|
-| PHP   | 8.1   |
-| MySQL | 5.7   |
-| Nginx | 1.20  |
+| 環境    | バージョン | 補足                                 |
+|-------|-------|------------------------------------|
+| PHP   | 8.1   | `./src/learning` 配下で実装してください       |
+| MySQL | 5.7   | phpMyAdminを使うと便利です                 |
+| Nginx | 1.20  | DocumentRoot は `./src/learning` です |
 
 ## 環境セットアップ
 
@@ -104,11 +104,10 @@ bash docker-down-all.sh
 
 ![PHP動作確認](./images/confirm_phpmyadmin.jpg)
 
-- 
-  - 
+-
+    -
 - phpMyAdmin用のアドレス
     - [http://localhost:8000/index.php](http://localhost:8000/index.php)
-
 
 .editorconfig
 https://rfs.jp/sb/vsc/editorconfig.html
@@ -127,7 +126,7 @@ https://daisuki.nichiyoubi.land/entry/2020/10/01/104101
 2. dockerコンテナの再起動
 3. 出力先を確認
 4. `cron_root.txt` を戻す
-   1. お忘れなく！
+    1. お忘れなく！
 
 #### 1. `cron_root.txt` を修正
 
@@ -152,7 +151,7 @@ after(２行目行頭の#を削除)
 dockerコンテナを再起動します。
 
 - `docker down`
-  - `docker stop` ではないので注意
+    - `docker stop` ではないので注意
 - `docker up -d`
 
 #### 3. 出力先を確認
