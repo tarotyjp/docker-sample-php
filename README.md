@@ -106,17 +106,6 @@ bash docker-down-all.sh
 
 ![PHP動作確認](./images/confirm_phpmyadmin.jpg)
 
--
-    -
-- phpMyAdmin用のアドレス
-    - [http://localhost:8000/index.php](http://localhost:8000/index.php)
-
-.editorconfig
-https://rfs.jp/sb/vsc/editorconfig.html
-
-diff=php
-https://daisuki.nichiyoubi.land/entry/2020/10/01/104101
-
 ### 定期実行環境の動作確認
 
 定期実行が不要な場合は確認不要です。
