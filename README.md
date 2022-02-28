@@ -15,8 +15,13 @@
 ツイートサンプル
 
 ```text
-#本気のDockerサンプル
 PHP版 本気のDockerサンプル でプログラミング学習始めましたー
+https://github.com/tarotyjp/sample-series
+
+#本気のDockerサンプル
+#駆け出しエンジニアとつながりたい 
+#プログラミング初心者 
+#プログラミング初学者と繋がりたい 
 ```
 
 ## 概要
