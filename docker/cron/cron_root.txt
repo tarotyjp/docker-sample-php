@@ -1,2 +1,2 @@
 # test command
-* * * * * date >> /tmp/cron/test.txt
+# * * * * * date >> /tmp/cron/test.txt
