@@ -21,3 +21,53 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+
+# User specific & automatically generated files #
+#################################################
+#docker nginx
+/docker/nginx/log/*
+
+#docker mysql db
+/docker/db/log/*
+
+#docker cron
+/docker/cron/tmp/*
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Tool specific files #
+#######################
+# vim
+*~
+*.swp
+*.swo
+# sublime text & textmate
+*.sublime-*
+*.stTheme.cache
+*.tmlanguage.cache
+*.tmPreferences.cache
+# Eclipse
+.settings/*
+.metadata/*
+RemoteSystemsTempFiles/*
+# JetBrains, aka PHPStorm, IntelliJ IDEA
+.idea
+_ide_helper.php
+.phpstorm.meta.php
+# NetBeans
+nbproject/*
+# Visual Studio Code
+.vscode
+
+# empty file #
+#######################
+!empty
