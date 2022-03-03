@@ -92,7 +92,8 @@ bash docker-down-all.sh
 
 [http://localhost:8080/index.php](http://localhost:8080/index.php)
 
-下記画面が表示されれば動作確認OKです。
+下記画面が表示されれば動作確認OKです。  
+＊補足：１回目の起動直後はエラーになることがあります。エラーとなった際には３０秒ほど置いて画面更新をしてみてください。
 
 ![PHP動作確認](./images/confirm_php.jpg)
 
