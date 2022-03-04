@@ -22,11 +22,5 @@
     <input type="submit" value="Wishを追加">
   </form>
 
-    <!-- <h2>My Wish</h2>
-    <input type="textarea">
-    <h2>Memo</h2>
-    <input type="textarea">
-    <input type="submit" value="Wishを追加"> -->
-
 </body>
 </html>
