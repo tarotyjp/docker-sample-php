@@ -66,8 +66,9 @@ _ide_helper.php
 # NetBeans
 nbproject/*
 # Visual Studio Code
-.vscode
+.vscode/*
 
 # empty file #
 #######################
 !empty
+!launch.json
