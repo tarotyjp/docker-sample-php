@@ -53,6 +53,11 @@ https://github.com/tarotyjp/sample-series
 
 ## 環境セットアップ
 
+ダウンロードからコンテナの作成までの使い方について詳しく知りたい方は下記を参考に準備しましょう。  
+その後こちらにもどり手順を確認してください。
+
+[本気のサンプルシリーズの使い方](https://github.com/tarotyjp/sample-series/blob/main/manuals/download-docker.md)
+
 リポジトリをクローンして下記を実行してください。
 
 1. docker-compose build --no-cache
