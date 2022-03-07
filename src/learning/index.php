@@ -1,14 +1,33 @@
 <?php
 // データベース設定
-define('DB_DSN', 'mysql:host=localhost;dbname=wish_list;charset=utf8');
-define('DB_USER', 'leaning_php');
-define('DB_PASSWORD', 'root');
+define('DB_DSN', 'mysql:dbname=learning_php;host=db;charset=utf8');
+define('DB_USER', 'learning_php');
+define('DB_PASSWORD', 'learning_php');
 
 // データベース接続
 // try catch構文はエラーメッセージの表示定義がわからず一旦使わず保留
-    $dbh = new PDO(DB_DSN,DB_USER,DB_PASSWORD);
+    $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+
+    // 値を受け取りDBに保存する作業中
+    if(!empty($_POST['myWish'])){
+        try{
+                $sql  = 'INSERT INTO wishs(my_wish) VALUES(:MYWISH)';
+                $stmt = $dbh->prepare($sql);
+
+            $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
+            $stmt->execute();
+
+            header('location: http://localhost:8080/');
+            exit();
+            } catch (PDOException $e) {
+                echo 'データベースにアクセスできません！'.$e->getMessage();
+            }
+        }
+
+
+
 ?>
 
 
@@ -26,13 +45,10 @@ define('DB_PASSWORD', 'root');
     <a href="new-wish.php">Wishを追加する</a>
     <div>
     <?php
-    // なんかおかしいと思いつつひとまず書いたコード
-        $myWish = $_POST["myWish"];
-        $memo = $_POST["memo"];
-        echo $myWish,$memo;
+    // なんかおかしいと思いつつちょっと直したコード
+        echo $_POST['myWish'];
+        echo $_POST['memo'];
     ?>
-    </div>
-
 
 </body>
 </html>
