@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: db
--- 生成日時: 2022 年 3 月 04 日 05:53
+-- 生成日時: 2022 年 3 月 07 日 06:08
 -- サーバのバージョン： 5.7.36
 -- PHP のバージョン: 8.0.15
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- データベース: `wish_list`
+-- データベース: `learning_php`
 --
 
 -- --------------------------------------------------------
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `wishs` (
   `id` int(11) NOT NULL,
-  `my_wish` int(20) NOT NULL,
-  `memo` int(100) DEFAULT NULL
+  `my_wish` varchar(20) NOT NULL,
+  `memo` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 
