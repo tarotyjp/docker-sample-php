@@ -16,9 +16,9 @@
   <h1>New Wish</h1>
   <form method="POST" action="index.php">
     My Wish:<br>
-    <input type="text" name="my-wish"><br>
+    <input type="text" name="myWish"><br>
     Memo:<br>
-    <input type="text" name="my-wish"><br>
+    <input type="text" name="memo"><br>
     <input type="submit" value="Wishを追加">
   </form>
 
