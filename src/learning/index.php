@@ -13,10 +13,11 @@ define('DB_PASSWORD', 'learning_php');
     // 値を受け取りDBに保存する作業中
     if(!empty($_POST['myWish'])){
         try{
-                $sql  = 'INSERT INTO wishs(my_wish) VALUES(:MYWISH)';
-                $stmt = $dbh->prepare($sql);
+            $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:NEWWISH,:MEMO)';
+            $stmt = $dbh->prepare($sql);
 
-            $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
+            $stmt->bindParam(':NEWWISH', $_POST['myWish'], PDO::PARAM_STR);
+            $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
             $stmt->execute();
 
             header('location: http://localhost:8080/');
@@ -25,9 +26,6 @@ define('DB_PASSWORD', 'learning_php');
                 echo 'データベースにアクセスできません！'.$e->getMessage();
             }
         }
-
-
-
 ?>
 
 
