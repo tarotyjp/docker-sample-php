@@ -1,3 +1,30 @@
 body {
+    margin: 0;
     text-align: center;
+    background-color: rgb(238, 192, 214);
+}
+
+.my style {
+    padding: 20px auto;
+}
+
+form input[type="text"] {
+    width: 300px;
+    height: 32px;
+    padding: 32px auto;
+    border-radius: 1mm;
+}
+
+textarea {
+    width: 300px;
+    padding: 32px auto;
+    resize: none;
+    border-radius: 1mm;
+}
+
+.btn {
+    border-radius: 1mm;
+    color: #333;
+    text-align: center;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.3);
 }

@@ -5,27 +5,30 @@ define('DB_USER', 'learning_php');
 define('DB_PASSWORD', 'learning_php');
 
 // データベース接続
-// try catch構文はエラーメッセージの表示定義がわからず一旦使わず保留
+try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    // （理解度メモ）エミュレーションの理解がイマイチ。
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+} catch (PDOException $e) {
+    echo $e->getMessage();
+    exit;
+}
 
-    // 値を受け取りDBに保存する作業中
-    if(!empty($_POST['myWish'])){
-        try{
-            $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:NEWWISH,:MEMO)';
-            $stmt = $dbh->prepare($sql);
-
-            $stmt->bindParam(':NEWWISH', $_POST['myWish'], PDO::PARAM_STR);
-            $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
-            $stmt->execute();
-
-            header('location: http://localhost:8080/');
-            exit();
-            } catch (PDOException $e) {
-                echo 'データベースにアクセスできません！'.$e->getMessage();
-            }
+// 値を受け取りDBに保存する
+if(!empty($_POST['myWish'])){
+    try{
+        $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:MYWISH,:MEMO)';
+        $stmt = $dbh->prepare($sql);
+        $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
+        $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
+        $stmt->execute();
+        header('location: http://localhost:8080/');
+        exit();
+        } catch (PDOException $e) {
+            echo 'データベースに保存できません'.$e->getMessage();
         }
+    }
 ?>
 
 
