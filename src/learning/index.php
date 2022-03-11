@@ -1,8 +1,5 @@
 <?php
-// データベース設定
-define('DB_DSN', 'mysql:dbname=learning_php;host=db;charset=utf8');
-define('DB_USER', 'learning_php');
-define('DB_PASSWORD', 'learning_php');
+require_once "../include/const.php";
 
 // データベース接続
 try {
@@ -15,20 +12,7 @@ try {
     exit;
 }
 
-// 値を受け取りDBに保存する
-if(!empty($_POST['myWish'])){
-    try{
-        $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:MYWISH,:MEMO)';
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
-        $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
-        $stmt->execute();
-        header('location: http://localhost:8080/');
-        exit();
-        } catch (PDOException $e) {
-            echo 'データベースに保存できません'.$e->getMessage();
-        }
-    }
+
 ?>
 
 

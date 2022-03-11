@@ -1,4 +1,31 @@
 <?php
+require_once "../include/const.php";
+
+// データベース接続
+try {
+  $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
+  $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+  // （理解度メモ）エミュレーションの理解がイマイチ。
+  $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+} catch (PDOException $e) {
+  echo $e->getMessage();
+  exit;
+}
+
+// 値を受け取りDBに保存する
+if(!empty($_POST['myWish'])){
+  try{
+      $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:MYWISH,:MEMO)';
+      $stmt = $dbh->prepare($sql);
+      $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
+      $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
+      $stmt->execute();
+      header('location: http://localhost:8080/');
+      exit();
+      } catch (PDOException $e) {
+          echo 'データベースに保存できません'.$e->getMessage();
+      }
+  }
 
 
 ?>
@@ -14,7 +41,7 @@
 </head>
 <body>
   <h1>New Wish</h1>
-  <form method="POST" action="index.php">
+  <form method="POST" action="new-wish.php">
     <span class="item">My Wish:</span><br>
     <input type="text" class="txt" name="myWish"
     placeholder="例）旅行に行く"><br>
