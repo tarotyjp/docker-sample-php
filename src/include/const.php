@@ -6,5 +6,4 @@ define('DB_USER', 'learning_php');
 define('DB_PASSWORD', 'learning_php');
 
 
-
 ?>

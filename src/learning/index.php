@@ -12,9 +12,13 @@ try {
     exit;
 }
 
+//  POSTされた値を取り出す処理(作業中)
+$sql = 'select * from wishs';
+$stmt = $dbh->query($sql);
+$wishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
-
 
 <!doctype html>
 <html lang="ja">
@@ -28,12 +32,17 @@ try {
 <body>
     <h1>Wish List</h1>
     <a href="new-wish.php">Wishを追加する</a>
-    <div>
-    <?php
-    // なんかおかしいと思いつつちょっと直したコード
-        echo $_POST['myWish'];
-        echo $_POST['memo'];
-    ?>
+    <!-- 追加したWishを表示する作業中 -->
+    <?php foreach ($wishs as $wish) { ?>
+        <table>
+            <tr>
+                <td><?php echo $wish['my_wish']; ?></td>
+                <td><?php echo $wish['memo']; ?></td>
+            </tr>
+        </table>
+    <?php } ?>
+
+
 
 </body>
 </html>

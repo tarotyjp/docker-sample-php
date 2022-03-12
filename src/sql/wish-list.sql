@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: db
--- 生成日時: 2022 年 3 月 08 日 13:11
+-- 生成日時: 2022 年 3 月 12 日 15:01
 -- サーバのバージョン： 5.7.36
 -- PHP のバージョン: 8.0.15
 
@@ -29,9 +29,24 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `wishs` (
   `id` int(11) NOT NULL,
-  `my_wish` varchar(20) NOT NULL,
+  `my_wish` varchar(20) DEFAULT NULL,
   `memo` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `wishs`
+--
+
+INSERT INTO `wishs` (`id`, `my_wish`, `memo`) VALUES
+(9, 'テスト２', 'テスト２'),
+(10, '遊びたーーい', '遊びたい〜〜〜〜'),
+(11, '旅行いきたーーい', '鳥取砂丘もいいな〜〜〜'),
+(12, '旅行に行く', '沖縄〜'),
+(13, '食事に行く', '唐揚げ'),
+(14, 'あれ〜', 'なんで表示できないの〜？'),
+(15, '今度こそ', '頼む！'),
+(16, 'もしかして', '凡ミス？'),
+(17, NULL, 'my Wishに原因があるはず！');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -51,7 +66,7 @@ ALTER TABLE `wishs`
 -- テーブルの AUTO_INCREMENT `wishs`
 --
 ALTER TABLE `wishs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

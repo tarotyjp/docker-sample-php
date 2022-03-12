@@ -8,25 +8,24 @@ try {
   // （理解度メモ）エミュレーションの理解がイマイチ。
   $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 } catch (PDOException $e) {
-  echo $e->getMessage();
+  echo $e->getMessage("データベースに接続できません");
   exit;
 }
 
 // 値を受け取りDBに保存する
-if(!empty($_POST['myWish'])){
+if(!empty($_POST['myWish'])) {
   try{
-      $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:MYWISH,:MEMO)';
+      $sql  = 'INSERT INTO wishs(my_wish,memo) VALUES(:MY_WISH,:MEMO)';
       $stmt = $dbh->prepare($sql);
-      $stmt->bindParam(':MYWISH', $_POST['myWish'], PDO::PARAM_STR);
+      $stmt->bindParam(':MY_WISH', $_POST['myWish'], PDO::PARAM_STR);
       $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
       $stmt->execute();
       header('location: http://localhost:8080/');
-      exit();
       } catch (PDOException $e) {
-          echo 'データベースに保存できません'.$e->getMessage();
+        echo $e->getMessage();
+        exit;
       }
   }
-
 
 ?>
 
@@ -51,5 +50,6 @@ if(!empty($_POST['myWish'])){
     <br>
     <input class="btn" type="submit" value="Wishを追加">
   </form>
+
 </body>
 </html>
