@@ -13,9 +13,9 @@ try {
 }
 
 //  POSTされた値を取り出す処理(作業中)
-$sql = 'select * from wishs';
+$sql = 'select * from wishes';
 $stmt = $dbh->query($sql);
-$wishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 ?>
@@ -24,7 +24,7 @@ $wishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wish List</title>
     <link rel="stylesheet" href="styles.css">
@@ -34,12 +34,27 @@ $wishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <a href="new-wish.php">Wishを追加する</a>
     <!-- 追加したWishを表示する作業中 -->
     <table>
-    <?php foreach ($wishs as $wish) { ?>
-        <tr>
-            <td><?php echo $wish['my_wish']; ?></td>
-            <td><?php echo $wish['memo']; ?></td>
-        </tr>
-    <?php } ?>
+        <thead>
+            <tr>
+                <th>My Wish</th>
+                <th>Memo</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($wishes as $wish) { ?>
+            <tr>
+                <td><?php echo $wish['my_wish']; ?></td>
+                <td><?php echo $wish['memo']; ?></td>
+            </tr>
+        <?php } ?>
+<!--        完了ボタンで項目を非表示にする（DBからは削除しない）-->
+<!--        <tr>-->
+<!--            <td>-->
+<!--                <button></button></td>-->
+<!--        </tr>-->
+        </tbody>
     </table>
 
 

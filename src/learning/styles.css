@@ -1,7 +1,6 @@
 body {
     margin: 0;
     text-align: center;
-    background-color: rgb(238, 192, 214);
     user-select: none;
     font-family: sans-serif;
 }
@@ -41,4 +40,19 @@ textarea::placeholder {
 .btn:hover {
     cursor: pointer;
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 24px auto;
+}
+
+table td {
+    text-align: left;
+    padding: 4px 32px;
+    border-bottom: 1px dashed burlywood;
+}
+thead {
+    background: burlywood;
+;
 }
