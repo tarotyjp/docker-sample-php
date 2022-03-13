@@ -8,7 +8,7 @@ try {
   // （理解度メモ）エミュレーションの理解がイマイチ。
   $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
 } catch (PDOException $e) {
-  echo $e->getMessage("データベースに接続できません");
+  echo $e->getMessage();
   exit;
 }
 
@@ -26,6 +26,9 @@ if(!empty($_POST['myWish'])) {
         exit;
       }
   }
+// 値が空だったら一覧ページにリダイレクトする処理
+// リダイレクトは絶対パスなのでURLの変数を定義
+// header("Location:".);
 
 ?>
 

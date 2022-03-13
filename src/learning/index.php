@@ -33,14 +33,14 @@ $wishs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>Wish List</h1>
     <a href="new-wish.php">Wishを追加する</a>
     <!-- 追加したWishを表示する作業中 -->
+    <table>
     <?php foreach ($wishs as $wish) { ?>
-        <table>
-            <tr>
-                <td><?php echo $wish['my_wish']; ?></td>
-                <td><?php echo $wish['memo']; ?></td>
-            </tr>
-        </table>
+        <tr>
+            <td><?php echo $wish['my_wish']; ?></td>
+            <td><?php echo $wish['memo']; ?></td>
+        </tr>
     <?php } ?>
+    </table>
 
 
 
