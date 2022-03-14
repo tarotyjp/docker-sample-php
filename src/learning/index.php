@@ -12,7 +12,7 @@ try {
     exit;
 }
 
-//  POSTされた値を取り出す処理(作業中)
+//  POSTされた値を取り出す処理
 $sql = 'select * from wishes';
 $stmt = $dbh->query($sql);
 $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +32,6 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>
     <h1>Wish List</h1>
     <a href="new-wish.php">Wishを追加する</a>
-    <!-- 追加したWishを表示する作業中 -->
     <table>
         <thead>
             <tr>
@@ -42,23 +41,16 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th></th>
             </tr>
         </thead>
+        <!-- 追加したWishを表示する処理 -->
         <tbody>
         <?php foreach ($wishes as $wish) { ?>
             <tr>
-                <td><?php echo $wish['my_wish']; ?></td>
+                <td><a href="detail.php"><?php echo $wish['my_wish']; ?></a></td>
                 <td><?php echo $wish['memo']; ?></td>
             </tr>
         <?php } ?>
-        完了ボタンで項目を非表示にする（DBからは削除しない）
-        <tr>
-            <td>
-                <button>
-
-                </button></td>
-        </tr>
         </tbody>
     </table>
-
 
 
 </body>

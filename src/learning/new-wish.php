@@ -17,8 +17,8 @@ if(!empty($_POST['myWish'])) {
   try{
       $sql  = 'INSERT INTO wishes(my_wish,memo) VALUES(:MY_WISH,:MEMO)';
       $stmt = $dbh->prepare($sql);
-      $stmt->bindParam(':MY_WISH', $_POST['myWish'], PDO::PARAM_STR);
-      $stmt->bindParam(':MEMO', $_POST['memo'], PDO::PARAM_STR);
+      $stmt->bindParam(':MY_WISH', $_POST['myWish']);
+      $stmt->bindParam(':MEMO', $_POST['memo']);
       $stmt->execute();
       header('location: http://localhost:8080');
       } catch (PDOException $e) {
@@ -26,7 +26,6 @@ if(!empty($_POST['myWish'])) {
       exit;
       }
   }
-
 ?>
 
 <!DOCTYPE html>
@@ -42,10 +41,12 @@ if(!empty($_POST['myWish'])) {
   <h1>New Wish</h1>
   <form method="POST" action="new-wish.php">
     <span class="item">My Wish:</span><br>
-      <input type="text" class="txt" name="myWish" placeholder="例）旅行に行く">
-    <span class="item">Memo:</span><br>
-      <textarea name="memo" id="memo" cols="20" rows="10"
-    placeholder="例）夏までに貯金して沖縄でリゾートホテルに泊まる "></textarea>
+      <label>
+          <input type="text" class="txt" name="myWish" placeholder="例）旅行に行く">
+      </label>
+      <span class="item">Memo:</span><br>
+      <label for="memo"></label><textarea name="memo" id="memo" cols="20" rows="10"
+                                          placeholder="例）夏までに貯金して沖縄でリゾートホテルに泊まる "></textarea>
     <br>
     <input class="btn" type="submit" value="Wishを追加">
   </form>

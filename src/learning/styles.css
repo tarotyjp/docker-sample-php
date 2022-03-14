@@ -51,8 +51,15 @@ table td {
     text-align: left;
     padding: 4px 32px;
     border-bottom: 1px dashed burlywood;
+    max-width: 40%;
 }
+
 thead {
     background: burlywood;
-;
+}
+
+tbody {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
