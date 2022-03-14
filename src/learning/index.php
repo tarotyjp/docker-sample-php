@@ -52,7 +52,9 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         完了ボタンで項目を非表示にする（DBからは削除しない）
         <tr>
             <td>
-                <button></button></td>
+                <button>
+
+                </button></td>
         </tr>
         </tbody>
     </table>
