@@ -49,11 +49,11 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <td><?php echo $wish['memo']; ?></td>
             </tr>
         <?php } ?>
-<!--        完了ボタンで項目を非表示にする（DBからは削除しない）-->
-<!--        <tr>-->
-<!--            <td>-->
-<!--                <button></button></td>-->
-<!--        </tr>-->
+        完了ボタンで項目を非表示にする（DBからは削除しない）
+        <tr>
+            <td>
+                <button></button></td>
+        </tr>
         </tbody>
     </table>
 
