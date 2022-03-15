@@ -43,7 +43,6 @@ textarea::placeholder {
 }
 
 table {
-    border-collapse: collapse;
     margin: 24px auto;
 }
 
@@ -56,10 +55,4 @@ table td {
 
 thead {
     background: burlywood;
-}
-
-tbody {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }

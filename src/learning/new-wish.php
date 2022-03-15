@@ -26,7 +26,15 @@ if(!empty($_POST['myWish'])) {
       exit;
       }
   }
+//if (empty($_POST['myWish'])) {
+//    header("Location: index.php");
+//    exit;
+//}
+
 ?>
+
+
+
 
 <!DOCTYPE html>
 <html lang="ja">

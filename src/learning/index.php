@@ -45,8 +45,8 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tbody>
         <?php foreach ($wishes as $wish) { ?>
             <tr>
-                <td><a href="detail.php"><?php echo $wish['my_wish']; ?></a></td>
-                <td><?php echo $wish['memo']; ?></td>
+                <td><a href="detail.php"><?php echo mb_substr($wish['my_wish'],0,10); ?></a></td>
+                <td><?php echo mb_substr($wish['memo'],0,10); ?></td>
             </tr>
         <?php } ?>
         </tbody>
