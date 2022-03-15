@@ -52,5 +52,6 @@ if ($prepare->execute(array($_GET['id']))) {
 <!--    --><?php //echo $myWish; ?>
 <!--    <h2>Memo</h2>-->
 <!--    --><?php //echo $memo; ?>
+
 </body>
 </html>
