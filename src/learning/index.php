@@ -1,6 +1,6 @@
 <?php
 require_once "../include/const.php";
-
+//require_once "detail.php";
 // データベース接続
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
@@ -16,7 +16,6 @@ try {
 $sql = 'select * from wishes';
 $stmt = $dbh->query($sql);
 $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
 ?>
 
@@ -41,11 +40,11 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th></th>
             </tr>
         </thead>
-        <!-- 追加したWishを表示する処理 -->
+        <!-- 追加したWishを表示する処理 作業中　　GETが。。。-->
         <tbody>
         <?php foreach ($wishes as $wish) { ?>
             <tr>
-                <td><a href="detail.php"><?php echo mb_substr($wish['my_wish'],0,10); ?></a></td>
+                <td><a href="detail.php?id=<?php echo $wish['id']; ?>" ><?php echo mb_substr($wish['my_wish'],0,10); ?></a></td>
                 <td><?php echo mb_substr($wish['memo'],0,10); ?></td>
             </tr>
         <?php } ?>

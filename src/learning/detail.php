@@ -1,5 +1,8 @@
 <?php
 require_once"../include/const.php";
+//require_once"index.php";
+//idを取得
+$id = $_GET['id'];
 
 //データベース接続
 try {
@@ -7,32 +10,28 @@ try {
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-//    POSTされた値を取り出す処理(idを取り出す)
-    $sql = 'SELECT id as wish_id FROM wishes ';
-    $prepare = $dbh->prepare($sql);
-    $prepare->execute();
-    $details = $prepare->fetchAll(PDO::FETCH_ASSOC);
+    //    POSTされた値を取り出す処理(idを取り出す)
+    $sql = "SELECT * FROM learning_php.wishes WHERE id = :id";
+    $stmt = $dbh->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
 } catch (PDOException $e) {
-    echo 'データベースに接続できません。';
-    echo $e->getMessage();
+    echo 'データベースに接続できません。'.$e->getMessage();
     exit;
 }
 
-//もしidが空だったらリダイレクト
-//$id = $_GET['id'];
-//if (empty($id)) {
+
+//（なんか違う）行を取り出す作業中
+if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+   $id = $row['id'];
+   $myWish = $row['my_wish'];
+   $memo = $row['memo'];
+} else {
+    echo '対象データがありません。';
+    exit;
 //    header("Location: index.php");
 //    exit;
-//}
-
-//作業中（なんか違う）idがあったら変数に入れて詳細画面表示に使う
-if ($prepare->execute(array($_GET['id']))) {
-    $myWish = $_GET['my_wish'];
-    $memo = $_GET['memo'];
-} else {
-    echo "対象のデータがありません。";
 }
-
 ?>
 
 <!doctype html>
@@ -47,11 +46,10 @@ if ($prepare->execute(array($_GET['id']))) {
 </head>
 <body>
     <h1>My Wish</h1>
-    <h2>My Wish</h2>
-<!--    詳細表示作業中　GET？迷走中-->
-<!--    --><?php //echo $myWish; ?>
-<!--    <h2>Memo</h2>-->
-<!--    --><?php //echo $memo; ?>
-
+<!--詳細画面表示作業中-->
+<?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+    <p><?php echo $myWish ; ?></p><br>
+    <p><?php echo $memo; ?></p><br>
+<?php } ?>
 </body>
 </html>
