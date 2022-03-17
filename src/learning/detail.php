@@ -1,8 +1,5 @@
 <?php
 require_once"../include/const.php";
-//require_once"index.php";
-//idを取得
-$id = $_GET['id'];
 
 //データベース接続
 try {
@@ -10,7 +7,10 @@ try {
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-    //    POSTされた値を取り出す処理(idを取り出す)
+    //idを取得
+    $id = $_GET['id'];
+
+    //    GETされた値を取り出す処理(idを取り出す)
     $sql = "SELECT * FROM learning_php.wishes WHERE id = :id";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':id', $id);
@@ -20,18 +20,6 @@ try {
     exit;
 }
 
-
-//（なんか違う）行を取り出す作業中
-if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-   $id = $row['id'];
-   $myWish = $row['my_wish'];
-   $memo = $row['memo'];
-} else {
-    echo '対象データがありません。';
-    exit;
-//    header("Location: index.php");
-//    exit;
-}
 ?>
 
 <!doctype html>
@@ -45,11 +33,13 @@ if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     <title>Wish詳細</title>
 </head>
 <body>
-    <h1>My Wish</h1>
+    <h1>Wish List</h1>
+    <h2>My Wish</h2>
 <!--詳細画面表示作業中-->
-<?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-    <p><?php echo $myWish ; ?></p><br>
-    <p><?php echo $memo; ?></p><br>
+    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+    <p><?php echo $row['my_wish']; ?></p><br>
+    <h2>Memo</h2>
+    <p><?php echo $row['memo']; ?></p><br>
 <?php } ?>
 </body>
 </html>
