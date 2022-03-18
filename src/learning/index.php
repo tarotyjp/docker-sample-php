@@ -30,7 +30,7 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
     <h1>Wish List</h1>
-    <a href="new-wish.php">Wishを追加する</a>
+    <a href="new-wish.php" class="btn-style">Wishを追加する</a>
     <table>
         <thead>
             <tr>
@@ -40,7 +40,7 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th></th>
             </tr>
         </thead>
-        <!-- 追加したWishを表示する処理 作業中　　GETが。。。-->
+<!--         追加したWishを表示する処理 作業中>-->
         <tbody>
         <?php foreach ($wishes as $wish) { ?>
             <tr>

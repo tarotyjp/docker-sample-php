@@ -37,9 +37,10 @@ try {
     <h2>My Wish</h2>
 <!--詳細画面表示作業中-->
     <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-    <p><?php echo $row['my_wish']; ?></p><br>
+    <p class="detail"><?php echo $row['my_wish']; ?></p><br>
     <h2>Memo</h2>
-    <p><?php echo $row['memo']; ?></p><br>
+    <p class="detail"><?php echo $row['memo']; ?></p><br>
 <?php } ?>
+    <a href="index.php" class="btn-style">もどる</a>
 </body>
 </html>

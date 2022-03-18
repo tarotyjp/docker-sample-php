@@ -26,14 +26,13 @@ if(!empty($_POST['myWish'])) {
       exit;
       }
   }
-//if (empty($_POST['myWish'])) {
-//    header("Location: index.php");
-//    exit;
-//}
-
+if (isset($_POST['myWish'])) {
+    if (empty ($_POST['myWish']) && empty ($_POST['memo'])) {
+        header("Location: index.php");
+        exit;
+    }
+}
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -56,8 +55,7 @@ if(!empty($_POST['myWish'])) {
       <label for="memo"></label><textarea name="memo" id="memo" cols="20" rows="10"
                                           placeholder="例）夏までに貯金して沖縄でリゾートホテルに泊まる "></textarea>
     <br>
-    <input class="btn" type="submit" value="Wishを追加">
+    <input class="btn-style" type="submit" value="Wishを追加">
   </form>
-
 </body>
 </html>
