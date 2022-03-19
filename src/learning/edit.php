@@ -19,28 +19,30 @@ try {
     echo 'データベースに接続できません。'.$e->getMessage();
     exit;
 }
-
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Wish</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Detail Wish</title>
 </head>
 <body>
-    <h1>Wish List</h1>
-    <h2>My Wish</h2>
-<!--詳細画面表示-->
-    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-    <p class="detail"><?php echo $row['my_wish']; ?></p><br>
-    <h2>Memo</h2>
-    <p class="detail"><?php echo $row['memo']; ?></p><br>
+<h1>Edit Wish</h1>
+<!--フォームの中に編集前のWishとメモを表示させる-->
+<form method="POST" action="detail.php">
+<?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+    <span class="item">My Wish:</span><br>
+    <label>
+        <input type="text" class="txt" name="myWish" value="<?php echo $row['my_wish']; ?>">
+    </label>
+    <span class="item">Memo:</span><br>
+        <label><textarea name="memo" id="memo" cols="20" rows="10"><?php echo $row['memo']; ?></textarea></label>
 <?php } ?>
-    <a href="index.php" class="btn-style">もどる</a>
+</form>　
+    <a href="index.php" class="btn-style">変更</a>
 </body>
 </html>

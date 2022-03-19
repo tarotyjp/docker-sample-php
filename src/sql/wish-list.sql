@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: db
--- 生成日時: 2022 年 3 月 13 日 12:36
+-- 生成日時: 2022 年 3 月 18 日 15:41
 -- サーバのバージョン： 5.7.36
 -- PHP のバージョン: 8.0.15
 
@@ -29,8 +29,8 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `wishes` (
                           `id` int(11) NOT NULL,
-                          `my_wish` varchar(20) DEFAULT NULL,
-                          `memo` varchar(100) DEFAULT NULL
+                          `my_wish` varchar(100) DEFAULT NULL,
+                          `memo` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -38,8 +38,8 @@ CREATE TABLE `wishes` (
 --
 
 INSERT INTO `wishes` (`id`, `my_wish`, `memo`) VALUES
-                                                   (20, '最終テスト', '最終テスト'),
-                                                   (22, 'テーブル名', '変更\r\n');
+                                                   (25, '旅行に行く', '沖縄に行く'),
+                                                   (32, '長いwish長いwish長いwish長い', '長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ長いメモ');
 
 --
 -- ダンプしたテーブルのインデックス
@@ -59,7 +59,7 @@ ALTER TABLE `wishes`
 -- テーブルの AUTO_INCREMENT `wishes`
 --
 ALTER TABLE `wishes`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

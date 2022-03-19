@@ -40,12 +40,13 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <th></th>
             </tr>
         </thead>
-<!--         追加したWishを表示する処理 作業中>-->
+<!--         追加したWishを表示する処理 -->
         <tbody>
         <?php foreach ($wishes as $wish) { ?>
             <tr>
                 <td><a href="detail.php?id=<?php echo $wish['id']; ?>" ><?php echo mb_substr($wish['my_wish'],0,10); ?></a></td>
                 <td><?php echo mb_substr($wish['memo'],0,10); ?></td>
+                <td><a href="edit.php?id=<?php echo $wish['id']; ?>">編集</a></td>
             </tr>
         <?php } ?>
         </tbody>
