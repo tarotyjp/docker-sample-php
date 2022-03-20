@@ -1,11 +1,12 @@
 <?php
-require_once"../include/const.php";
+
+require_once "../include/const.php";
 
 //データベース接続
 try {
     $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
-    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //idを取得
     $id = $_GET['id'];
@@ -16,7 +17,7 @@ try {
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 } catch (PDOException $e) {
-    echo 'データベースに接続できません。'.$e->getMessage();
+    echo 'データベースに接続できません。' . $e->getMessage();
     exit;
 }
 
@@ -33,14 +34,18 @@ try {
     <title>Wish詳細</title>
 </head>
 <body>
-    <h1>Wish List</h1>
-    <h2>My Wish</h2>
-<!--詳細画面表示作業中-->
-    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
-    <p class="detail"><?php echo $row['my_wish']; ?></p><br>
+<h1>Wish List</h1>
+<h2>My Wish</h2>
+<!--詳細画面表示(修正済)-->
+<?php
+if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+    <p class="detail"><?php
+        echo $row['my_wish']; ?></p><br>
     <h2>Memo</h2>
-    <p class="detail"><?php echo $row['memo']; ?></p><br>
-<?php } ?>
-    <a href="index.php" class="btn-style">もどる</a>
+    <p class="detail"><?php
+        echo $row['memo']; ?></p><br>
+<?php
+} ?>
+<a href="index.php" class="btn-style">もどる</a>
 </body>
 </html>
