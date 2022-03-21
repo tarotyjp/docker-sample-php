@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: db
--- 生成日時: 2022 年 3 月 08 日 13:11
+-- 生成日時: 2022 年 3 月 13 日 12:36
 -- サーバのバージョン： 5.7.36
 -- PHP のバージョン: 8.0.15
 
@@ -24,34 +24,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `wishs`
+-- テーブルの構造 `wishes`
 --
 
-CREATE TABLE `wishs` (
-  `id` int(11) NOT NULL,
-  `my_wish` varchar(20) NOT NULL,
-  `memo` varchar(100) DEFAULT NULL
+CREATE TABLE `wishes` (
+                          `id` int(11) NOT NULL,
+                          `my_wish` varchar(20) DEFAULT NULL,
+                          `memo` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- テーブルのデータのダンプ `wishes`
+--
+
+INSERT INTO `wishes` (`id`, `my_wish`, `memo`) VALUES
+                                                   (20, '最終テスト', '最終テスト'),
+                                                   (22, 'テーブル名', '変更\r\n');
 
 --
 -- ダンプしたテーブルのインデックス
 --
 
 --
--- テーブルのインデックス `wishs`
+-- テーブルのインデックス `wishes`
 --
-ALTER TABLE `wishs`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `wishes`
+    ADD PRIMARY KEY (`id`);
 
 --
 -- ダンプしたテーブルの AUTO_INCREMENT
 --
 
 --
--- テーブルの AUTO_INCREMENT `wishs`
+-- テーブルの AUTO_INCREMENT `wishes`
 --
-ALTER TABLE `wishs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `wishes`
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
