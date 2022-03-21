@@ -42,10 +42,12 @@ table td {
 thead {
     background: burlywood;
 }
+
 tbody a {
     text-decoration: none;
     color: #333333;
 }
+
 tbody a:hover {
     cursor: pointer;
     text-decoration: underline;
