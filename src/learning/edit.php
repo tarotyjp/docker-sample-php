@@ -17,23 +17,9 @@ try {
     $stmt->bindParam(':id', $id);
     $stmt->execute();
 } catch (PDOException $e) {
-    echo 'データベースに接続できません。' . $e->getMessage();
+    echo 'データベースに接続できません。';
     exit;
 }
-
-// 編集されたら、DBを更新する（作業中）
-
-//    if (内容が変更されたら ) {
-//        $sql = 'UPDATE wishes SET my_Wish = :MY_WISH, memo = :MEMO WHERE id = :id';
-//        $stmt = $dbh->prepare($sql);
-//        $stmt->bindParam('']); 　　　　　　　　　　　　　<ーPOSTされたid取得するの難しい気がする…
-//        $stmt->bindParam(':MY_WISH', $_POST['myWish']);
-//        $stmt->bindParam(':MEMO', $_POST['memo']);
-//        $stmt->execute();
-//    }　else {
-//        header('location: http://localhost:8080/index.php');
-//}
-
 ?>
 
 <!DOCTYPE html>
@@ -47,22 +33,24 @@ try {
 </head>
 <body>
 <h1>Edit Wish</h1>
-<!--フォームの中に編集前のWishとメモを表示させる-->
-<form method="POST" action="edit.php">
+<form method="POST" action="edit_done.php">
     <?php
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
         <span class="item">My Wish:</span><br>
         <label>
+            <!--フォームの中に編集前のWishとメモを表示させる-->
             <input type="text" class="txt" name="myWish" value="<?php
             echo $row['my_wish']; ?>">
         </label>
         <span class="item">Memo:</span><br>
         <label><textarea name="memo" id="memo" cols="20" rows="10"><?php
                 echo $row['memo']; ?></textarea></label><br>
+        <!--        DB更新する為にidを渡す-->
+        <input type="hidden" name="id" value="<?php
+        echo $id; ?>">
+        <input type="submit" class="btn-style" name="submit" value="変更">
         <?php
     } ?>
-    <a href="index.php" class="btn-style">変更</a>
-    <!--    編集されたら内容を更新する（作業中）-->
 </form>
 </body>
 </html>
