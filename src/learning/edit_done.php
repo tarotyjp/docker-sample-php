@@ -14,29 +14,14 @@ $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
     $sql = 'UPDATE wishes SET my_wish = :MY_WISH, memo = :MEMO WHERE id = :id';
     $stmt = $dbh->prepare($sql);
-    $stmt->bindParam('id', $id);
+    $stmt->bindParam(':id', $id);
     $stmt->bindParam(':MY_WISH', $myWish);
     $stmt->bindParam(':MEMO', $memo);
     $stmt->execute();
+    header("Location: index.php");
 } catch (PDOException $e) {
     echo '更新できません。';
     exit;
 }
+
 ?>
-
-<!doctype html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wish更新完了</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<p>Wishを編集しました</p>
-<a href="index.php" class="btn-style">一覧画面へ戻る</a>
-
-</body>
-</html>
