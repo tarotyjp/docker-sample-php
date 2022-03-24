@@ -43,12 +43,12 @@ try {
             echo $row['my_wish']; ?>">
         </label>
         <span class="item">Memo:</span><br>
-        <label><textarea name="memo" id="memo" cols="20" rows="10"><?php
+        <label><textarea name="memo" cols="20" rows="10"><?php
                 echo $row['memo']; ?></textarea></label><br>
         <!--        DB更新する為にidを渡す-->
         <input type="hidden" name="id" value="<?php
         echo $id; ?>">
-        <input type="submit" class="btn-style" name="submit" value="変更">
+        <input type="submit" class="btn-style" value="変更">
         <?php
     } ?>
 </form>

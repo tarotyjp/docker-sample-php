@@ -4,7 +4,6 @@ require_once "../include/const.php";
 $id = $_POST['id'];
 $myWish = $_POST['myWish'];
 $memo = $_POST['memo'];
-$submit = $_POST['submit'];
 
 //データベース接続
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASSWORD);
