@@ -55,8 +55,11 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 echo mb_substr($wish['memo'], 0, 10); ?></td>
             <td><a href="edit.php?id=<?php
                 echo $wish['id']; ?>">編集</a></td>
+            <td>
+                <a href="complete.php" type="submit" >完了</a>
+            </td>
         </tr>
-    <?php
+        <?php
     } ?>
     </tbody>
 </table>

@@ -20,7 +20,6 @@ try {
     echo 'データベースに接続できません。' . $e->getMessage();
     exit;
 }
-
 ?>
 
 <!doctype html>
