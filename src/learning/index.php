@@ -18,6 +18,10 @@ $sql = 'select * from wishes';
 $stmt = $dbh->query($sql);
 $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+//completeカラムが0（未完了）のレコードだけを取す処理l
+$sql = 'select * from wishes WHERE complete = 0';
+$stmt = $dbh->query($sql);
+$wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -56,7 +60,8 @@ $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <td><a href="edit.php?id=<?php
                 echo $wish['id']; ?>">編集</a></td>
             <td>
-                <a href="complete.php" type="submit" >完了</a>
+                <a href="complete.php?id=<?php
+                echo $wish['id']; ?>" type="submit">完了</a>
             </td>
         </tr>
         <?php
