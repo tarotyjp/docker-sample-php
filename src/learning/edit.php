@@ -12,15 +12,18 @@ try {
     exit;
 }
 
+
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     try {
         //idを取得
         $id = $_GET['id'];
+
 //    編集画面に内容を表示する
         $sql = "SELECT * FROM learning_php.wishes WHERE id = :id";
         $stmt = $dbh->prepare($sql);
-//        $stmt->fetch(PDO::FETCH_ASSOC)
         $stmt->bindParam('id', $id);
+        $stmt->fetchAll(PDO::FETCH_ASSOC);
+//        $wishes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $stmt->execute();
     } catch (PDOException $e) {
         echo $e->getMessage();
@@ -28,22 +31,24 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     }
 }
 
+//if ($_SERVER['REQUEST_METHOD'] != 'GET') {
+    if ($myWish )) {
+        $id = $_POST['id'];
+        $myWish = $_POST['myWish'];
+        $memo = $_POST['memo'];
 
-if ($_SERVER['REQUEST_METHOD'] != 'GET') {
-//        $id = $_POST['']
-    if (isset($_POST['myWish'])) {
         $sql = 'UPDATE wishes SET my_wish = :MY_WISH, memo = :MEMO WHERE id = :id';
         $stmt = $dbh->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->bindParam(':MY_WISH', $myWish);
         $stmt->bindParam(':MEMO', $memo);
         $stmt->execute();
-//            header("Location: index.php");
+//        header("Location: index.php");
     } else {
         echo '更新できませんでした';
         exit;
     }
-}
+//}
 
 ?>
 
@@ -70,12 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] != 'GET') {
         <span class="item">Memo:</span><br>
         <label><textarea name="memo" cols="20" rows="10"><?php
                 echo $row['memo']; ?></textarea></label><br>
-        <!--        DB更新する為にidを渡す-->
-<!--        <input type="hidden" name="id" value="--><?php
-//        echo $id; ?><!--">-->
+        <!--      DB更新する為にidを渡す-->
+        <input type="hidden" name="id" value="<?php
+        echo $id; ?>">
         <input type="submit" class="btn-style" value="変更">
     <?php
     endif; ?>
-</form>
-</body>
+</form></body>
 </html>
